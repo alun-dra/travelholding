@@ -216,32 +216,40 @@ export default function HoldingLandingGSAP() {
         />
 
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pt-28">
-          <p className="hero-kicker text-sm uppercase tracking-[0.2em] text-neutral-400">Grupo empresarial</p>
-          <h1 className="hero-title text-5xl font-semibold leading-[1.05] md:text-7xl">
-            <span className="inline-block overflow-hidden align-top">Invertimos</span>
-            <br />
-            <span className="inline-block overflow-hidden align-top">y escalamos</span>{" "}
-            <span className="inline-block overflow-hidden align-top">marcas</span>
-          </h1>
-          <p className="hero-sub max-w-xl text-balance text-lg text-neutral-300 md:text-xl">
-            Tres compañías, una visión. Innovación, seguridad y producto para crecer con foco en el largo plazo.
-          </p>
+            <p className="hero-kicker text-sm uppercase tracking-[0.2em] text-neutral-400">
+                Tres marcas, un solo ritual de vida
+            </p>
 
-          <div className="mt-2 flex gap-3">
-            <a
-              href="#brands"
-              className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-5 py-2 text-sm text-white transition hover:border-white/30 hover:bg-white/10"
-            >
-              <span>Ver marcas →</span>
-            </a>
-            <a
-              href="#about"
-              className="magnet inline-flex items-center rounded-full border border-white/10 px-5 py-2 text-sm text-neutral-200 transition hover:border-white/30 hover:bg-white/5"
-            >
-              <span>Conócenos</span>
-            </a>
-          </div>
+            <h1 className="hero-title text-5xl font-semibold leading-[1.05] md:text-7xl">
+                <span className="inline-block overflow-hidden align-top">Rituales para</span>
+                <br />
+                <span className="inline-block overflow-hidden align-top">tu piel, tu viaje</span>{" "}
+                <span className="inline-block overflow-hidden align-top">y tu hogar</span>
+            </h1>
+
+            <p className="hero-sub max-w-xl text-balance text-lg text-neutral-300 md:text-xl">
+                Altitude Rituals (belleza con propósito), Travel Kit (viajar con alma) y Home Kit (el arte de habitar).
+                Tres caminos que convierten lo cotidiano en experiencia, lo funcional en belleza y lo transitorio en memoria.
+            </p>
+
+            <div className="mt-2 flex gap-3">
+                <a
+                    href="#brands"
+                    className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-5 py-2 text-sm text-white transition hover:border-white/30 hover:bg-white/10"
+                    aria-label="Explorar marcas"
+                >
+                    <span>Explorar marcas →</span>
+                </a>
+                <a
+                    href="#about"
+                    className="magnet inline-flex items-center rounded-full border border-white/10 px-5 py-2 text-sm text-neutral-200 transition hover:border-white/30 hover:bg-white/5"
+                    aria-label="Ver manifiesto"
+                >
+                    <span>Ver manifiesto</span>
+                </a>
+            </div>
         </div>
+
 
         {/* Scroll hint */}
         <div className="pointer-events-none absolute bottom-6 left-0 right-0 flex justify-center opacity-100">
