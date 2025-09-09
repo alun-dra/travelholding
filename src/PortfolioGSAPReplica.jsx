@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BRANDS } from "./brandsData";
+import { Link } from "react-router-dom"; // si usarás rutas
 
 // Register GSAP plugin
 if (typeof window !== "undefined" && gsap && !gsap.core.globals()["ScrollTrigger"]) {
@@ -16,38 +18,7 @@ if (typeof window !== "undefined" && gsap && !gsap.core.globals()["ScrollTrigger
  * - Microinteracciones "magnéticas" en botones
  */
 
-const BRANDS = [
-    {
-        name: "Altitude Rituals",
-        summary:
-        "Belleza con propósito. Más que skincare: una práctica de conexión. Fórmulas limpias, texturas sensoriales y símbolos que elevan tu energía. Ritualiza tu belleza, honra tu altitud.",
-        url: "https://altitude.example.com",
-        image:
-        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop",
-        tags: ["Skincare limpio", "Energía", "Ritual"],
-        accent: "from-fuchsia-400/20 to-fuchsia-400/0",
-    },
-    {
-        name: "Travel Kit",
-        summary:
-        "Viajar con alma. Esenciales que cuidan tu cuerpo y tu energía en movimiento. Compacto, intuitivo y lleno de significado: un talismán moderno para viajes exteriores e interiores.",
-        url: "https://travelkit.example.com",
-        image:
-        "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1600&auto=format&fit=crop",
-        tags: ["Movimiento", "Esenciales", "Ligero"],
-        accent: "from-cyan-400/20 to-cyan-400/0",
-    },
-    {
-        name: "Home Kit",
-        summary:
-        "El arte de habitar. Aromas, texturas y objetos que transforman espacios en refugios simbólicos. Protege, inspira y armoniza. Ritualiza tu entorno, honra tu paz.",
-        url: "https://homekit.example.com",
-        image:
-        "https://images.unsplash.com/photo-1509401934319-c03f9f7d9f42?q=80&w=1600&auto=format&fit=crop",
-        tags: ["Aromas", "Texturas", "Hogar"],
-        accent: "from-amber-400/20 to-amber-400/0",
-    },
-];
+
 
 // SVG noise como data-URI de forma segura en JSX (evita errores de comillas en clases Tailwind)
 const NOISE_BG = `url("data:image/svg+xml,${encodeURIComponent(
@@ -190,7 +161,7 @@ export default function HoldingLandingGSAP() {
       {/* NAV */}
       <header className="fixed left-0 right-0 top-0 z-50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
-          <a href="#top" className="font-semibold tracking-tight">ACME Holding</a>
+          <a href="#top" className="font-semibold tracking-tight">737LAB</a>
           <nav className="flex items-center gap-6 text-sm text-neutral-300">
             <a href="#brands" className="hover:text-white transition">Marcas</a>
             <a href="#about" className="hover:text-white transition">Nosotros</a>
@@ -216,52 +187,44 @@ export default function HoldingLandingGSAP() {
         />
 
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 pt-28">
-            <p className="hero-kicker text-sm uppercase tracking-[0.2em] text-neutral-400">
-                Tres marcas, un solo ritual de vida
-            </p>
+          <p className="hero-kicker text-sm uppercase tracking-[0.2em] text-neutral-400">✨ Tres marcas, un solo ritual de vida</p>
+          <h1 className="hero-title text-5xl font-semibold leading-[1.05] md:text-7xl">
+            <span className="inline-block overflow-hidden align-top">Invertimos</span>
+            <br />
+            <span className="inline-block overflow-hidden align-top">y escalamos</span>{" "}
+            <span className="inline-block overflow-hidden align-top">marcas</span>
+          </h1>
+          <p className="hero-sub max-w-xl text-balance text-lg text-neutral-300 md:text-xl">
+            Tres compañías, una visión. Innovación, seguridad y producto para crecer con foco en el largo plazo.
+          </p>
 
-            <h1 className="hero-title text-5xl font-semibold leading-[1.05] md:text-7xl">
-                <span className="inline-block overflow-hidden align-top">Rituales para</span>
-                <br />
-                <span className="inline-block overflow-hidden align-top">tu piel, tu viaje</span>{" "}
-                <span className="inline-block overflow-hidden align-top">y tu hogar</span>
-            </h1>
-
-            <p className="hero-sub max-w-xl text-balance text-lg text-neutral-300 md:text-xl">
-                Altitude Rituals (belleza con propósito), Travel Kit (viajar con alma) y Home Kit (el arte de habitar).
-                Tres caminos que convierten lo cotidiano en experiencia, lo funcional en belleza y lo transitorio en memoria.
-            </p>
-
-            <div className="mt-2 flex gap-3">
-                <a
-                    href="#brands"
-                    className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-5 py-2 text-sm text-white transition hover:border-white/30 hover:bg-white/10"
-                    aria-label="Explorar marcas"
-                >
-                    <span>Explorar marcas →</span>
-                </a>
-                <a
-                    href="#about"
-                    className="magnet inline-flex items-center rounded-full border border-white/10 px-5 py-2 text-sm text-neutral-200 transition hover:border-white/30 hover:bg-white/5"
-                    aria-label="Ver manifiesto"
-                >
-                    <span>Ver manifiesto</span>
-                </a>
-            </div>
-        </div>
-
-
-        {/* Scroll hint */}
-        <div className="pointer-events-none absolute bottom-6 left-0 right-0 flex justify-center opacity-100">
-          <div className="rounded-full bg-white/10 px-4 py-2 text-xs text-neutral-200 backdrop-blur">
-            ACME Holding • scroll / swipe para explorar
+          <div className="mt-2 flex gap-3">
+            <a
+              href="#brands"
+              className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-5 py-2 text-sm text-white transition hover:border-white/30 hover:bg-white/10"
+            >
+              <span>Ver marcas →</span>
+            </a>
+            <a
+              href="#about"
+              className="magnet inline-flex items-center rounded-full border border-white/10 px-5 py-2 text-sm text-neutral-200 transition hover:border-white/30 hover:bg-white/5"
+            >
+              <span>Conócenos</span>
+            </a>
           </div>
         </div>
+
+        {/* Scroll hint */}
+        {/* <div className="pointer-events-none absolute bottom-6 left-0 right-0 flex justify-center opacity-100">
+          <div className="rounded-full bg-white/10 px-4 py-2 text-xs text-neutral-200 backdrop-blur">
+            737LAB • scroll / swipe para explorar
+          </div>
+        </div> */}
       </section>
 
       {/* MARQUEE */}
-      <section ref={marqueeRef} aria-hidden className="relative z-10 mx-auto mt-[-32px] max-w-6xl overflow-hidden px-4 pb-2 m-6">
-        <div className="marquee-row flex min-w-[200%] select-none gap-10 whitespace-nowrap opacity-60 m-6">
+      <section ref={marqueeRef} aria-hidden className="relative z-10 mx-auto mt-[-32px] max-w-6xl overflow-hidden px-4 pb-2">
+        <div className="marquee-row flex min-w-[200%] select-none gap-10 whitespace-nowrap opacity-60">
           {[...BRANDS, ...BRANDS].map((b, i) => (
             <div key={i} className="text-sm uppercase tracking-[0.25em] text-neutral-400">
               {b.name} •
@@ -275,58 +238,84 @@ export default function HoldingLandingGSAP() {
         <div className="mb-8">
           <h2 className="text-3xl font-semibold md:text-4xl">Nuestras marcas</h2>
           <div className="brands-underline mt-2 h-[2px] w-24 origin-left scale-x-0 bg-white/30" />
+          <p className="mt-3 max-w-3xl text-sm text-neutral-300">
+            En un mundo que se mueve rápido, cada espacio merece su propio ritual. Te presentamos tres marcas que transforman lo cotidiano en experiencia, lo funcional en belleza, y lo transitorio en memoria.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {BRANDS.map((b) => (
-            <article
-              key={b.name}
-              className="brand-card group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-4 shadow-2xl transition will-change-transform"
-            >
-              {/* Glow/acento */}
-              <div className={`brand-bg pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b ${b.accent}`} />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+  {BRANDS.map((b) => (
+    <article
+      key={b.slug}
+      className="brand-card group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-5 shadow-xl transition will-change-transform"
+    >
+      {/* halo sutil por marca */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(520px 220px at var(--mx,50%) var(--my,50%), ${b.spotlight}, transparent)`,
+        }}
+      />
 
-              <div className="relative h-56 w-full overflow-hidden rounded-2xl">
-                <img
-                  src={b.image}
-                  alt={b.name}
-                  className="brand-image h-full w-full object-cover object-center will-change-transform"
-                  loading="lazy"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-              </div>
+      {/* imagen */}
+      <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl">
+        <img
+          src={b.image}
+          alt={b.name}
+          className="brand-image h-full w-full scale-[1.06] object-cover object-center transition duration-700 will-change-transform group-hover:scale-100"
+          loading="lazy"
+        />
+        <div className={`pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent`} />
+      </div>
 
-              <div className="mt-4 flex flex-col gap-2">
-                <h3 className="text-xl font-semibold leading-tight md:text-2xl">{b.name}</h3>
-                <p className="text-sm text-neutral-300">{b.summary}</p>
-                <div className="flex flex-wrap gap-1 text-[10px] text-neutral-300">
-                  {b.tags.map((t) => (
-                    <span key={t} className="rounded-full bg-white/5 px-2 py-1">{t}</span>
-                  ))}
-                </div>
-              </div>
+      {/* título + logo */}
+      <div className="mt-5 flex items-center gap-3">
+        {b.logo && <img src={b.logo} alt={`${b.name} logo`} className="h-6 w-auto opacity-90" />}
+        <h3 className="text-xl font-semibold leading-tight md:text-2xl">{b.name}</h3>
+      </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <a
-                  href={b.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="magnet inline-flex items-center gap-1 rounded-full border border-white/15 px-4 py-2 text-xs text-neutral-100 transition hover:border-white/30 hover:bg-white/5"
-                  aria-label={`Visitar ${b.name}`}
-                >
-                  <span>Visitar marca</span>
-                  <span aria-hidden>↗</span>
-                </a>
-              </div>
+      <p className="mt-2 text-sm text-neutral-300">{b.summary}</p>
 
-              {/* Hover spotlight */}
-              <div
-                className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
-                style={{ background: "radial-gradient(400px 200px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.08), transparent)" }}
-              />
-            </article>
-          ))}
-        </div>
+      {/* tags */}
+      <div className="mt-3 flex flex-wrap gap-1 text-[10px] text-neutral-300">
+        {b.tags.map((t) => (
+          <span key={t} className="rounded-full border border-white/10 bg-white/[0.03] px-2 py-1">
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* CTAs */}
+      <div className="mt-5 flex items-center justify-between gap-2">
+        {/* Presentación interna */}
+        <Link
+          to={`/brand/${b.slug}`}
+          className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white transition hover:border-white/30 hover:bg-white/10"
+          aria-label={`Ver presentación de ${b.name}`}
+        >
+          <span>Presentación</span>
+        </Link>
+        {/* Sitio externo */}
+        <a
+          href={b.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="magnet inline-flex items-center gap-1 rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-100 transition hover:border-white/30 hover:bg-white/5"
+          aria-label={`Visitar sitio de ${b.name}`}
+        >
+          <span>Visitar sitio</span>
+          <span aria-hidden>↗</span>
+        </a>
+      </div>
+
+      {/* borde activo sobrio */}
+      <span className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/10 transition group-hover:ring-white/20" />
+    </article>
+  ))}
+</div>
+
+
+        
       </section>
 
       {/* ABOUT */}
@@ -353,7 +342,7 @@ export default function HoldingLandingGSAP() {
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-10 text-center text-sm text-neutral-400">
-        <p>© {new Date().getFullYear()} ACME Holding • Hecho con GSAP + React + Tailwind</p>
+        <p>© {new Date().getFullYear()} 737LAB • Hecho con GSAP + React + Tailwind</p>
       </footer>
     </main>
   );
