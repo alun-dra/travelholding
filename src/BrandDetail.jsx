@@ -108,7 +108,9 @@ export default function BrandDetail() {
               {brand.name}
             </h1>
             <p className="bd-sub mt-3 max-w-2xl text-neutral-200">
-              {brand.long || brand.summary}
+              {/* {brand.long || brand.summary} */}
+              Tu viaje comienza mucho antes de despegar. Este travel kit reúne todo lo esencial para que cada traslado se sienta como un acto de autocuidado y elegancia práctica. Desde cremas que protegen y revitalizan tu piel en cada clima, hasta bolsos y maletas diseñados para acompañarte con funcionalidad y belleza, cada pieza está pensada para que tu experiencia sea fluida, cómoda y con alma.
+
             </p>
 
             {/* Chips */}
