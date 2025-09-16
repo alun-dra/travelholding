@@ -118,63 +118,6 @@ export default function HoldingLandingGSAP() {
           });
         };
 
-        //const roam = (el) => {
-        //   const r = wrap.getBoundingClientRect();
-        //   const w = el.offsetWidth;
-        //   const h = el.offsetHeight;
-        //   const pad = 20;
-
-        //   const xMin = -pad, xMax = r.width - w + pad;
-        //   const yMin = -pad, yMax = r.height - h + pad;
-
-        //   gsap.set(el, {
-        //     x: rand(xMin, xMax),
-        //     y: rand(yMin, yMax),
-        //     scale: rand(0.7, 1.3),
-        //     opacity: rand(0.75, 1),       
-        //     transformOrigin: "50% 50%",
-        //   });
-
-
-        //   const drift = () => {
-        //     gsap.to(el, {
-        //       duration: rand(8, 16),
-        //       x: rand(xMin, xMax),
-        //       y: rand(yMin, yMax),
-        //       ease: "sine.inOut",
-        //       onComplete: drift,
-        //     });
-        //   };
-        //   drift();
-
-          
-        //   gsap.to(el, {
-        //     duration: rand(6, 10),
-        //     scale: () => rand(0.7, 1.4),
-        //     ease: "sine.inOut",
-        //     yoyo: true,
-        //     repeat: -1,
-        //   });
-
-        
-        //   gsap.to(el, {
-        //     duration: rand(7, 12),
-        //     opacity: () => rand(0.8, 1),  
-        //     ease: "sine.inOut",
-        //     yoyo: true,
-        //     repeat: -1,
-        //   });
-
-
-        //   gsap.to(el, {
-        //     duration: rand(12, 20),
-        //     rotate: () => rand(-25, 25),
-        //     ease: "sine.inOut",
-        //     yoyo: true,
-        //     repeat: -1,
-        //   });
-        // };
-
 
         const blobs = wrap.querySelectorAll(".lava-blob");
         blobs.forEach((el) => roam(el));
@@ -573,117 +516,117 @@ gsap.from(".chip", {
       </section>
 
       {/* BRANDS */}
-<section id="brands" className="brands-section relative z-0 mx-auto max-w-6xl px-4 pb-28 pt-16">
-  {/* Fondo animado (burbujas orbe) */}
-  <div className="pointer-events-none absolute inset-[-8%] -z-10">
-    <div
-      ref={brandsBgRef}
-      className="absolute inset-0"
-      style={{
-        filter: "contrast(1.15) brightness(1.15) saturate(1.05)",
-        mixBlendMode: "screen",
-        opacity: 0.75,
-      }}
-    >
-      {Array.from({ length: 6 }).map((_, i) => (
-        <span
-          key={i}
-          className="brand-blob absolute left-0 top-0 aspect-square w-[26vmin] rounded-full will-change-transform"
-          style={{
-            background:
-              "radial-gradient(60% 60% at 35% 35%, rgba(var(--accent-rgb),.55), rgba(var(--accent-rgb),.22) 60%, transparent 80%)",
-          }}
-        />
-      ))}
-    </div>
+      <section id="brands" className="brands-section relative z-0 mx-auto max-w-6xl px-4 pb-28 pt-16">
+        {/* Fondo animado (burbujas orbe) */}
+        <div className="pointer-events-none absolute inset-[-8%] -z-10">
+          <div
+            ref={brandsBgRef}
+            className="absolute inset-0"
+            style={{
+              filter: "contrast(1.15) brightness(1.15) saturate(1.05)",
+              mixBlendMode: "screen",
+              opacity: 0.75,
+            }}
+          >
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span
+                key={i}
+                className="brand-blob absolute left-0 top-0 aspect-square w-[26vmin] rounded-full will-change-transform"
+                style={{
+                  background:
+                    "radial-gradient(60% 60% at 35% 35%, rgba(var(--accent-rgb),.55), rgba(var(--accent-rgb),.22) 60%, transparent 80%)",
+                }}
+              />
+            ))}
+          </div>
 
-    {/* viñeta muy suave para centrar la mirada */}
-    <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_20%,transparent,rgba(0,0,0,.35))]" />
-  </div>
-
-  <div className="mb-8">
-    <h2 className="text-3xl font-semibold md:text-4xl">Nuestras marcas</h2>
-    <div className="brands-underline mt-2 h-[2px] w-24 origin-left scale-x-0 bg-[rgba(var(--accent-rgb),.4)]" />
-    <p className="mt-3 max-w-3xl text-sm text-neutral-300">
-      En un mundo que se mueve rápido, cada espacio merece su propio ritual. Te
-      presentamos tres marcas que transforman lo cotidiano en experiencia, lo
-      funcional en belleza, y lo transitorio en memoria.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-    {BRANDS.map((b) => (
-      <article
-        key={b.slug}
-        className="brand-card group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-5 shadow-2xl transition will-change-transform"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* halo/acento reactivo al mouse */}
-        <div
-          className="brand-bg pointer-events-none absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
-          style={{
-            background: `radial-gradient(520px 220px at var(--mx,50%) var(--my,50%), ${b.spotlight || "rgba(var(--accent-rgb),.22)"}, transparent)`,
-          }}
-        />
-
-        {/* IMAGEN */}
-        <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl">
-          <img
-            src={b.image}
-            alt={b.name}
-            className="brand-image h-full w-full scale-[1.06] object-cover object-center transition duration-700 will-change-transform group-hover:scale-100"
-            loading="lazy"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+          {/* viñeta muy suave para centrar la mirada */}
+          <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_20%,transparent,rgba(0,0,0,.35))]" />
         </div>
 
-        {/* TÍTULO + LOGO */}
-        <div className="mt-5 flex items-center gap-3">
-          {b.logo && (
-            <img src={b.logo} alt={`${b.name} logo`} className="h-6 w-auto opacity-90" />
-          )}
-          <h3 className="text-xl font-semibold leading-tight md:text-2xl">{b.name}</h3>
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold md:text-4xl">Nuestras marcas</h2>
+          <div className="brands-underline mt-2 h-[2px] w-24 origin-left scale-x-0 bg-[rgba(var(--accent-rgb),.4)]" />
+          <p className="mt-3 max-w-3xl text-sm text-neutral-300">
+            En un mundo que se mueve rápido, cada espacio merece su propio ritual. Te
+            presentamos tres marcas que transforman lo cotidiano en experiencia, lo
+            funcional en belleza, y lo transitorio en memoria.
+          </p>
         </div>
 
-        <p className="mt-2 text-sm text-neutral-300">{b.summary}</p>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {BRANDS.map((b) => (
+            <article
+              key={b.slug}
+              className="brand-card group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-5 shadow-2xl transition will-change-transform"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              {/* halo/acento reactivo al mouse */}
+              <div
+                className="brand-bg pointer-events-none absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
+                style={{
+                  background: `radial-gradient(520px 220px at var(--mx,50%) var(--my,50%), ${b.spotlight || "rgba(var(--accent-rgb),.22)"}, transparent)`,
+                }}
+              />
 
-        {/* TAGS */}
-        <div className="mt-3 flex flex-wrap gap-1 text-[10px] text-neutral-300">
-          {b.tags.map((t) => (
-            <span key={t} className="chip rounded-full border border-white/10 bg-white/[0.03] px-2 py-1">
-              {t}
-            </span>
+              {/* IMAGEN */}
+              <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl">
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  className="brand-image h-full w-full scale-[1.06] object-cover object-center transition duration-700 will-change-transform group-hover:scale-100"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+              </div>
+
+              {/* TÍTULO + LOGO */}
+              <div className="mt-5 flex items-center gap-3">
+                {b.logo && (
+                  <img src={b.logo} alt={`${b.name} logo`} className="h-6 w-auto opacity-90" />
+                )}
+                <h3 className="text-xl font-semibold leading-tight md:text-2xl">{b.name}</h3>
+              </div>
+
+              <p className="mt-2 text-sm text-neutral-300">{b.summary}</p>
+
+              {/* TAGS */}
+              <div className="mt-3 flex flex-wrap gap-1 text-[10px] text-neutral-300">
+                {b.tags.map((t) => (
+                  <span key={t} className="chip rounded-full border border-white/10 bg-white/[0.03] px-2 py-1">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTAS */}
+              <div className="mt-5 flex items-center justify-between gap-2">
+                <Link
+                  to={`/brand/${b.slug}`}
+                  className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white transition hover:border-[rgba(var(--accent-rgb),.45)] hover:bg-[rgba(var(--accent-rgb),.08)]"
+                >
+                  <span>Presentación</span>
+                </Link>
+                <a
+                  href={b.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="magnet inline-flex items-center gap-1 rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-100 transition hover:border-[rgba(var(--accent-rgb),.35)] hover:bg-[rgba(var(--accent-rgb),.06)]"
+                >
+                  <span>Visitar sitio</span>
+                  <span aria-hidden>↗</span>
+                </a>
+              </div>
+
+              {/* Destello (sheen) que barre en hover */}
+              <div className="sheen pointer-events-none absolute inset-0 -z-0 translate-x-[-120%] opacity-0 bg-[linear-gradient(100deg,rgba(255,255,255,0)_0%,rgba(255,255,255,.22)_50%,rgba(255,255,255,0)_100%)] mix-blend-screen" />
+
+              {/* Borde activo */}
+              <span className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/10 transition group-hover:ring-[rgba(var(--accent-rgb),.35)]" />
+            </article>
           ))}
         </div>
-
-        {/* CTAS */}
-        <div className="mt-5 flex items-center justify-between gap-2">
-          <Link
-            to={`/brand/${b.slug}`}
-            className="magnet inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs text-white transition hover:border-[rgba(var(--accent-rgb),.45)] hover:bg-[rgba(var(--accent-rgb),.08)]"
-          >
-            <span>Presentación</span>
-          </Link>
-          <a
-            href={b.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="magnet inline-flex items-center gap-1 rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-100 transition hover:border-[rgba(var(--accent-rgb),.35)] hover:bg-[rgba(var(--accent-rgb),.06)]"
-          >
-            <span>Visitar sitio</span>
-            <span aria-hidden>↗</span>
-          </a>
-        </div>
-
-        {/* Destello (sheen) que barre en hover */}
-        <div className="sheen pointer-events-none absolute inset-0 -z-0 translate-x-[-120%] opacity-0 bg-[linear-gradient(100deg,rgba(255,255,255,0)_0%,rgba(255,255,255,.22)_50%,rgba(255,255,255,0)_100%)] mix-blend-screen" />
-
-        {/* Borde activo */}
-        <span className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/10 transition group-hover:ring-[rgba(var(--accent-rgb),.35)]" />
-      </article>
-    ))}
-  </div>
-</section>
+      </section>
 
 
       {/* ABOUT */}
@@ -694,19 +637,15 @@ gsap.from(".chip", {
             <p className="mt-4 max-w-prose text-neutral-300">
               Belleza consciente, movimiento inteligente, innovación sostenible.
 
-Somos un holding que conecta tres dimensiones esenciales del bienestar moderno: <br /> 
-<br />
-- Dermocosmética de alto estándar, creada para cuidar la piel con ciencia, sensibilidad y respeto por el entorno. <br />
-- Soluciones de viaje prácticas y elegantes, pensadas para acompañar cuerpos en movimiento con comodidad, estilo y ritual. <br />  
-- Innovación en gestión de residuos, transformando desafíos ambientales en oportunidades de impacto positivo. <br /><br />
+              Somos un holding que conecta tres dimensiones esenciales del bienestar moderno: <br /> 
+              <br />
+              - Dermocosmética de alto estándar, creada para cuidar la piel con ciencia, sensibilidad y respeto por el entorno. <br />
+              - Soluciones de viaje prácticas y elegantes, pensadas para acompañar cuerpos en movimiento con comodidad, estilo y ritual. <br />  
+              - Innovación en gestión de residuos, transformando desafíos ambientales en oportunidades de impacto positivo. <br /><br />
 
-Cada línea responde a una misma visión: crear productos que cuiden, acompañen y transformen. Porque creemos que el bienestar personal, la movilidad consciente y el respeto por el planeta no son caminos separados, sino parte de una misma historia.
-            </p>
-            {/* <ul className="mt-6 list-disc space-y-2 pl-6 text-neutral-300">
-              <li>Gobernanza y despliegue de capital eficientes.</li>
-              <li>Prácticas de seguridad y cumplimiento unificadas.</li>
-              <li>Capas de diseño y experiencia consistentes entre marcas.</li>
-            </ul> */}
+              Cada línea responde a una misma visión: crear productos que cuiden, acompañen y transformen. Porque creemos que el bienestar personal, la movilidad consciente y el respeto por el planeta no son caminos separados, sino parte de una misma historia.
+                          </p>
+          
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 text-sm text-neutral-300">
             <h3 className="mb-3 text-base font-semibold text-white">Contacto</h3>
