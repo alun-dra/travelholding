@@ -36,7 +36,7 @@ export const BRANDS = [
       // 3 imágenes de cosméticos/toiletry de viaje
       "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?q=80&w=1600&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1512203492609-8f393b5bd0d9?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?q=80&w=1600&auto=format&fit=crop",
     ],
   },
 

@@ -8,9 +8,9 @@ import ProgressCircle from "./ProgressCircle";
 const FEATHER_ACCENT = { hex: "#B79C7B", rgb: "183,156,123" };
 
 const NOISE_BG = `url("data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'>
+  `<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160' preserveAspectRatio='none'>
     <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/></filter>
-    <rect width='100%' height='100%' filter='url(#n)' opacity='0.6'/>
+    <rect x='-1' y='-1' width='162' height='162' filter='url(#n)' opacity='0.6'/>
   </svg>`
 )}")`;
 
@@ -18,29 +18,35 @@ export default function SiteShell() {
   return (
     <main
       id="top"
-      // relative + isolate para crear un contexto propio de capas y que el ruido/mix-blend no contamine fuera
+      // Sticky footer + capas ordenadas
       className="
-        relative min-h-svh text-neutral-100 antialiased
-        pt-[68px] md:pt-[80px]                      /* espacio por HEADER fijo */
-        pb-[calc(64px+env(safe-area-inset-bottom))] /* espacio por FOOTER fijo */
+        relative min-h-svh flex flex-col
+        text-neutral-100 antialiased
+        pt-[68px] md:pt-[80px]      /* espacio por HEADER fijo */
+        overflow-x-hidden          /* evita desbordes en mobile */
       "
       style={{
         ["--accent"]: FEATHER_ACCENT.hex,
         ["--accent-rgb"]: FEATHER_ACCENT.rgb,
-        // cada página puede definir --page-bg; si no, fallback oscuro
         background: "var(--page-bg, #0a0b0e)",
         isolation: "isolate",
       }}
     >
-      {/* ruido global al fondo */}
+      {/* Ruido de fondo (capa más baja) */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 z-0"
-        style={{ backgroundImage: NOISE_BG, opacity: 0.06 }}
+        className="pointer-events-none fixed -inset-px z-0"
+        style={{
+          backgroundImage: NOISE_BG,
+          backgroundRepeat: "repeat",
+          backgroundSize: "160px 160px",
+          opacity: 0.06,
+        }}
       />
 
-      {/* Fijos en toda la app */}
+      {/* Header fijo, forzamos z alto para estar encima del overlay */}
       <Header
+        className="z-[90]"
         brand="737LAB"
         links={[
           { label: "Marcas", href: "/#brands" },
@@ -48,17 +54,19 @@ export default function SiteShell() {
         ]}
         fixed
       />
+      
+      {/* Overlay de progreso: lo ponemos en z-40 y sin interacciones */}
+      {/* <div className="fixed inset-0 z-[80] pointer-events-none " >
+        <ProgressCircle placement="overlay" />
+      </div> */}
 
-      {/* indicador de scroll (fixed) */}
-      <ProgressCircle placement="overlay" />
-
-      {/* Contenido de las páginas por encima del ruido */}
-      <div className="relative z-10">
+      {/* Contenido */}
+      <div className="relative z-10 flex-1">
         <Outlet />
       </div>
 
-      {/* Footer fijo con “glass” (si usas mi versión anterior) */}
-      <Footer brand="737LAB" fixed />
+      {/* Footer (no fixed) */}
+      <Footer />
     </main>
   );
 }
