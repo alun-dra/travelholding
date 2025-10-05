@@ -150,12 +150,19 @@ export default function Hero() {
         <p className="hero-kicker text-sm uppercase tracking-[0.2em] text-neutral-400">
           Tres marcas, un solo ritual de vida
         </p>
-        <h1 className="hero-title text-5xl font-semibold leading-[1.05] md:text-7xl">
-          <span className="inline-block overflow-hidden align-top">Soluciones integradas</span>
+        <h1 className="hero-title text-5xl font-semibold leading-[1.08] md:text-7xl">
+          <span className="reveal-line inline-block overflow-hidden pb-[0.20em] align-baseline">
+            <span className="reveal-content inline-block">Soluciones integradas</span>
+          </span>
           <br />
-          <span className="inline-block overflow-hidden align-top">para un mundo en </span>{" "}
-          <span className="inline-block overflow-hidden align-top">evolución</span>
+          <span className="reveal-line inline-block overflow-hidden pb-[0.12em] align-baseline">
+            <span className="reveal-content inline-block">para un mundo en</span>
+          </span>{" "}
+          <span className="reveal-line inline-block overflow-hidden pb*[0.12em] align-baseline">
+            <span className="reveal-content inline-block">evolución</span>
+          </span>
         </h1>
+
         <p className="hero-sub max-w-xl text-balance text-lg text-neutral-300 md:text-xl">
           Tres compañías, una visión. Innovación, seguridad y producto para crecer con foco en el largo plazo.
         </p>
