@@ -83,11 +83,11 @@ export default function Footer({
             </p> */}
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
+          {/* <div className="hidden md:flex items-center gap-2">
             <IconPill label="Instagram" href="https://instagram.com/" Icon={Instagram} />
             <IconPill label="LinkedIn" href="https://linkedin.com/" Icon={Linkedin} />
             <IconPill label="YouTube" href="https://youtube.com/" Icon={Youtube} />
-          </div>
+          </div> */}
         </div>
 
         {/* hairline gradient divider */}
@@ -128,13 +128,13 @@ export default function Footer({
               <li className="flex items-center gap-2">
                 <Mail size={16} className="opacity-70" />
                 <a className="hover:text-white/95 transition" href="mailto:hola@737lab.com">
-                  hola@737lab.com
+                  mjt@737lab.cl
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="opacity-70" />
                 <a className="hover:text-white/95 transition" href="tel:+56912345678">
-                  +56 9 1234 5678
+                  +56 9 9 7652 869
                 </a>
               </li>
               <li className="flex items-center gap-2">
